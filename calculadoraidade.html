@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio parte3</title>
+</head>
+<style>
+    header{
+ color:white;
+ font: normal 18pt arial;  
+ text-align: center;     
+    }
+body{
+margin-top: 40px;
+background: rgb(51, 135, 224);
+
+}
+section{
+background: white;
+width: 500px;
+padding:17px;
+margin: auto;
+align-items: left;
+box-shadow: 2px 2px 3px;
+border-radius: 5px;
+}
+div{
+    padding: 10px;
+}
+button{
+    border-radius: 5px;
+    padding: 4px;
+  box-shadow: 2px 2px 2px;
+}
+button:hover{
+    background-color: rgba(0, 191, 255, 0.497);
+}
+footer{
+color: white;
+text-align: center;
+font-style: italic;    
+}    
+</style>
+<body onload="abrir()">
+ <header>Verificador de idade</header>
+ <section>
+    <div>
+ <div id="ano"></div>       
+<p>Ano de Nascimento
+    <input type="number" name="nasc" id="nasc">    
+</p>
+<p>Sexo
+<input type="radio" name="" id="masculino"> 
+<label for="masculino">Masculino</label>
+<input type="radio" name="feminino" id="feminino" >
+<label for="feminino">Feminino</label> 
+</p>   
+<button onclick="clicar()">Verificar</button> <br>
+<div id="resultado">preencha os dados acima para ver o resultado </div>
+</div>
+ </section>
+<footer>&copy;Abu Maico</footer>
+</body>
+<script>
+
+var data=new Date()
+var ano=Number(data.getFullYear())
+var hora=data.getHours()
+var min=data.getMinutes()
+function abrir(){
+var an=document.getElementById('ano')  
+an.innerHTML=`Ano Atual ${ano} <br>` 
+an.innerHTML+=`Hora: ${hora}:${min}`
+}    
+ function clicar(){   
+ var nasc=document.getElementById('nasc')
+ var res=document.getElementById('resultado') 
+ var anonas=Number(nasc.value)
+var idade=Number(ano-anonas)
+res.innerHTML=`voce tem ${idade} anos de idade <br>`
+if(idade>12 && idade<18){
+    res.innerHTML+=` Voce é Adolescente`
+}else
+if (idade>=18 && idade<50){
+res.innerHTML+=` Voce é Adulto`
+}else{
+res.innerHTML+=`voce é Idoso`    
+}
+
+ }
+</script>
+</html>
